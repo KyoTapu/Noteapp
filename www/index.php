@@ -24,7 +24,7 @@
   <link rel="stylesheet" href="/style.css"/>
   <title>Home Page</title>
 </head>
-<body >
+<body style="background: green">
 
   <!-- Navigation -->
   <div class="container-fluid bg-light py-2">
@@ -48,7 +48,10 @@
 
 
     if($row['is_activated']===0){?>
-      <div class=" m-3 p-3 alert alert-warning w-25 float-right" > Please activate your account using the email sent to you.</div>
+      <div class="alert alert-warning position-fixed top-0 end-0 m-3 p-3 w-25" style="z-index: 1055;">
+  Please activate your account using the email sent to you.
+</div>
+
     <?php }
   ?>
   <!-- Header -->
@@ -56,7 +59,7 @@
     <h1 >WELCOME TO NOTETATION, <?= $_SESSION['username'] ?></h1>
   </div>
 
-  <!-- Create and Search -->
+  <!-- Create + Search -->
   <div class="container mb-4">
     <div class="row align-items-center">
       <div class="col-12 col-md-3 mb-2">
@@ -74,6 +77,26 @@
           </div>
         </form>
 
+      </div>
+      <div class="col-12 col-md-2 mb-2">
+        <div class="btn-group w-100">
+          <button class="btn btn-outline-primary active" id="grid-view">
+            <i class="fas fa-th-large"></i>
+          </button>
+          <button class="btn btn-outline-primary" id="list-view">
+            <i class="fas fa-list"></i>
+          </button>
+        </div>
+      </div>
+      <div class="col-12 col-md-2 mb-2">
+        <div class="btn-group w-100">
+          <button class="btn btn-outline-primary active" id="grid-view">
+            <i class="fas fa-th-large"></i>
+          </button>
+          <button class="btn btn-outline-primary" id="list-view">
+            <i class="fas fa-list"></i>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -154,30 +177,28 @@
       <?php 
 	  	$sql="select * from user,note";
 	 
-	 	for ($i = 0; $i < 10; $i++) { ?>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-  <div class="border rounded p-3 shadow-sm h-100 bg-white">
-      
-    <!-- Title & 3-dot menu -->
-    <div class="d-flex justify-content-between align-items-start">
-      <div class="font-weight-bold text-truncate" style="max-width: 85%;">Title <?= $i ?></div>
+	 	for ($i = 0; $i < 50; $i++) { ?>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 note-item">
+          <div class="border rounded p-3 shadow-sm h-100 bg-white">
+            <!-- Title & 3-dot menu -->
+            <div class="d-flex justify-content-between align-items-start">
+              <div class="font-weight-bold text-truncate" style="max-width: 85%;">Title <?= $i ?></div>
 
-      <div class="dropdown">
-        <button class="btn btn-sm btn-light p-1" type="button" data-toggle="dropdown" aria-expanded="false">
-          <span class="text-dark"><i class="fa-solid fa-ellipsis-vertical"></i></span>
-        </button>
-        <div class="dropdown-menu dropdown-menu-right">
-          <a class="dropdown-item" href="#">Modify</a>
-          <a class="dropdown-item text-danger" href="#">Delete</a>
+              <div class="dropdown">
+                <button class="btn btn-sm btn-light p-1" type="button" data-toggle="dropdown" aria-expanded="false">
+                  <span class="text-dark"><i class="fa-solid fa-ellipsis-vertical"></i></span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="#">Modify</a>
+                  <a class="dropdown-item text-danger" href="#">Delete</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Note content -->
+            <div class="text-muted text-truncate mt-2">hehehhe, dhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh <?= $i ?></div>
+          </div>
         </div>
-      </div>
-    </div>
-
-    <!-- Note content -->
-    <div class="text-muted text-truncate mt-2">hehehhe, dhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh <?= $i ?></div>
-  </div>
-</div>
-
       <?php } ?>
     </div>
   </div>
