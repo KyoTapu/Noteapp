@@ -80,24 +80,15 @@
       </div>
       <div class="col-12 col-md-2 mb-2">
         <div class="btn-group w-100">
-          <button class="btn btn-outline-primary active" id="grid-view">
+          <button class="btn btn-outline-primary active" id="grid-view" onclick="toggleView('grid')">
             <i class="fas fa-th-large"></i>
           </button>
-          <button class="btn btn-outline-primary" id="list-view">
+          <button class="btn btn-outline-primary" id="list-view" onclick="toggleView('list')">
             <i class="fas fa-list"></i>
           </button>
         </div>
       </div>
-      <div class="col-12 col-md-2 mb-2">
-        <div class="btn-group w-100">
-          <button class="btn btn-outline-primary active" id="grid-view">
-            <i class="fas fa-th-large"></i>
-          </button>
-          <button class="btn btn-outline-primary" id="list-view">
-            <i class="fas fa-list"></i>
-          </button>
-        </div>
-      </div>
+      
     </div>
   </div>
 
@@ -134,10 +125,7 @@
 
   <!-- Note Display -->
   <div class="container">
-  <div class="row d-flex">
-    <button onclick="toggleView('grid')" href="Node/display_note.php">Grid View</button>
-    <button onclick="toggleView('list')">List View</button>
-  </div>
+  
   
   <div id="notesContainer" class="row row-cols-3">
     <?php
@@ -174,32 +162,7 @@
   </div>
 </div>
 
-      <?php 
-	  	$sql="select * from user,note";
-	 
-	 	for ($i = 0; $i < 50; $i++) { ?>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 note-item">
-          <div class="border rounded p-3 shadow-sm h-100 bg-white">
-            <!-- Title & 3-dot menu -->
-            <div class="d-flex justify-content-between align-items-start">
-              <div class="font-weight-bold text-truncate" style="max-width: 85%;">Title <?= $i ?></div>
-
-              <div class="dropdown">
-                <button class="btn btn-sm btn-light p-1" type="button" data-toggle="dropdown" aria-expanded="false">
-                  <span class="text-dark"><i class="fa-solid fa-ellipsis-vertical"></i></span>
-                </button>
-                <div class="dropdown-menu dropdown-menu-right">
-                  <a class="dropdown-item" href="#">Modify</a>
-                  <a class="dropdown-item text-danger" href="#">Delete</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Note content -->
-            <div class="text-muted text-truncate mt-2">hehehhe, dhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh <?= $i ?></div>
-          </div>
-        </div>
-      <?php } ?>
+      
     </div>
   </div>
 
